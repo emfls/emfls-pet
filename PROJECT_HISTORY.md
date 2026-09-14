@@ -62,3 +62,12 @@
 - CNAME은 Pages 검증을 위해 DNS-only(`proxied: false`)로 설정했다. 기존 다른 프로젝트의 DNS 레코드는 수정하지 않았다.
 - Direct Upload는 로컬 `dist`를 배포할 수 있지만 Wrangler에 `CLOUDFLARE_API_TOKEN`이 없어 실행되지 않았다. 검증된 manifest 없이 deployment API에 메타데이터만 POST하는 우회는 안전상 수행하지 않았다.
 - 결과: Cloudflare project와 GitHub 연결은 완료됐지만 production deployment와 custom domain 검증은 BLOCKED 상태다. 사람이 Cloudflare Pages/GitHub 연결 권한 또는 scoped API token으로 한 번 배포를 트리거하고 CNAME 검증을 확인해야 한다.
+
+## 2026-09-14 — P4 deployment blocker confirmation
+
+- 최신 조회에서 Pages project source는 정확히 `github / emfls / emfls-pet / main`이며 `deployments_enabled`와 `production_deployments_enabled`가 모두 true, build는 `npm run build` → `dist`다.
+- `main` push 이후에도 Cloudflare deployment 목록은 0개이고 `latest_deployment`·`canonical_deployment`도 null이다. Cloudflare API에 동일 source를 재연결하려 하자 `A repository is already connected to this project`를 반환했다.
+- 따라서 최초 Production deployment가 생성되지 않는 확정 범위의 원인은 로컬 Astro build가 아니라 Cloudflare GitHub integration의 push event/webhook 처리 또는 해당 GitHub App repository 권한이다. Pages API 응답만으로 webhook 설치 상태 자체는 확인할 수 없었다.
+- `pet.emfls.com` DNS CNAME은 `emfls-pet.pages.dev`로 존재하고 Pages custom domain 상태는 active가 되었지만, deployment가 없어 `https://emfls-pet.pages.dev/`와 `https://pet.emfls.com/` 모두 HTTP 522를 반환했다.
+- Wrangler Direct Upload는 `CLOUDFLARE_API_TOKEN`이 없어 실행되지 않았다. 빈 deployment metadata POST나 다른 프로젝트 우회는 하지 않았다.
+- 현재 BLOCKER는 Cloudflare Dashboard에서 GitHub App의 `emfls/emfls-pet` repository access/webhook을 확인하거나, 최소 권한의 Cloudflare API token으로 `dist` Direct Upload를 수행하는 것이다.

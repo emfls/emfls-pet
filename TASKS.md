@@ -31,7 +31,8 @@
 - [x] Search Console 제출 정보 문서화
 - [ ] 실제 배포 환경에서 모바일·접근성 최종 확인
 - [x] Cloudflare Pages 프로젝트 생성 및 GitHub source 연결
-- [ ] Cloudflare production deployment 완료
-- [ ] `pet.emfls.com` custom domain 검증 완료
+- [ ] Cloudflare production deployment 완료 — BLOCKED: GitHub push event가 Pages deployment로 생성되지 않음
+- [x] `pet.emfls.com` custom domain 연결 및 DNS CNAME 생성
+- [ ] `pet.emfls.com` HTTP 200 및 HTTPS production QA
 - [ ] 검색 결과 정렬·카테고리 탐색 UX 고도화
 - [ ] 신뢰 가능한 용품 큐레이션 모델 검토

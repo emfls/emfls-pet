@@ -52,3 +52,13 @@
 - 빌드 HTML 기준 27개 title·description·canonical이 모두 존재하고 중복이 없으며, 내부 링크와 slug도 오류가 없다.
 - production URL 외부 QA는 현재 환경에서 `pet.emfls.com`을 안전하게 열 수 없어 완료하지 못했다. 따라서 HTTP 200, HTTPS redirect, 실제 모바일 동작, Search Console 소유권은 사람이 배포 연결 후 확인해야 한다.
 - 이번 작업에서 새 기능, 광고, Analytics, verification 값, Cloudflare 설정은 추가하지 않았다.
+
+## 2026-09-14 — P4 Cloudflare connection attempt
+
+- Cloudflare 계정에서 다른 Pages 프로젝트를 수정하지 않고 `emfls-pet` Pages 프로젝트를 생성했다. Project ID는 `f08b8eef-88d9-4cae-bf40-4b73c6ec9f9f`이다.
+- GitHub source는 `emfls/emfls-pet`, production branch는 `main`, build command는 `npm run build`, output directory는 `dist`, root directory는 저장소 루트로 연결했다. Analytics와 환경변수는 추가하지 않았다.
+- `main`에 `chore: trigger production deployment` 커밋(`66cac66`)을 push했지만 Cloudflare API의 deployment 목록에는 아직 production deployment가 생성되지 않았다.
+- `emfls.com` zone에서 기존 `pet.emfls.com` DNS record가 없음을 확인한 뒤 `pet → emfls-pet.pages.dev` CNAME을 추가했다. Pages custom domain 상태는 여전히 `pending`이며 API가 `CNAME record not set`으로 보고한다.
+- CNAME은 Pages 검증을 위해 DNS-only(`proxied: false`)로 설정했다. 기존 다른 프로젝트의 DNS 레코드는 수정하지 않았다.
+- Direct Upload는 로컬 `dist`를 배포할 수 있지만 Wrangler에 `CLOUDFLARE_API_TOKEN`이 없어 실행되지 않았다. 검증된 manifest 없이 deployment API에 메타데이터만 POST하는 우회는 안전상 수행하지 않았다.
+- 결과: Cloudflare project와 GitHub 연결은 완료됐지만 production deployment와 custom domain 검증은 BLOCKED 상태다. 사람이 Cloudflare Pages/GitHub 연결 권한 또는 scoped API token으로 한 번 배포를 트리거하고 CNAME 검증을 확인해야 한다.

@@ -38,6 +38,8 @@ const isProduction = import.meta.env.PROD;
   .brand { flex-shrink: 0; }
   nav { flex-basis: 100%; width: auto; justify-content: space-between; gap: 0; min-width: 0; }
   nav a { flex: 1 1 0; text-align: center; font-size: 11px; white-space: nowrap; }
+  .hero > div { min-width: 0; }
+  .hero p { width: 100%; max-width: 260px; white-space: normal; overflow-wrap: break-word; word-break: keep-all; }
   footer { padding-inline: 16px; }
   .footer-links { display: flex; flex-wrap: wrap; gap: 12px 16px; }
 }

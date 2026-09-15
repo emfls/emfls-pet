@@ -36,7 +36,7 @@
 - [x] `pet.emfls.com` HTTP 200 및 HTTPS production QA
 - [x] GA4(`G-DS3JXX4VR6`) production-only 연결 및 Privacy 반영
 - [x] 단일 `sitemap.xml` 생성 및 robots/Search Console URL 통일
-- [x] 네이버 소유확인 파일을 `public/`에 배치해 production에 포함
+- [x] 네이버 소유확인 파일 `navere4a2be9a6dea6acc28cccd1fb834c95a.html`을 `public/`에 배치해 production에 포함
 - [ ] 네이버 exact 소유확인 URL(`/naver6dde13e69fe8ec25cd17e085c65c2124.html`) HTTP 200 확인 — Cloudflare Pages 확장자 자동 정규화로 308 BLOCKED
 - [x] Network Baseline v1: SEO head·구조화 데이터·접근성·콘텐츠 audit 기준 반영
 - [x] 기존 15개 가이드 audit 및 핵심 2개 가이드 보강

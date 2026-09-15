@@ -110,3 +110,7 @@
 - 파일 내용은 변경하지 않았으며, Astro static build 결과와 production 경로에서 원본 인증 문자열을 확인한다.
 - `npm run check`와 `npm run build`는 통과했고 `dist/`의 파일 내용도 원본과 일치한다. GitHub `main`에서 Cloudflare Pages production 배포(`94d1c946`, `38d8510`)까지 성공했다.
 - Pages가 `.html` 요청을 확장자 없는 경로로 자동 정규화해 exact URL은 현재 HTTP 308을 반환한다. `_redirects` 규칙으로도 해결되지 않아, 서비스 전체 라우팅을 가로채는 Worker 우회는 적용하지 않았으며 exact URL HTTP 200은 남은 BLOCKER다.
+
+## 2026-09-15 — Naver ownership file replacement
+
+- 네이버 소유확인 파일을 `navere4a2be9a6dea6acc28cccd1fb834c95a.html`로 교체하고 `public/`에 배치했다. 기존 인증 파일은 제거했으며 새 파일 원문은 변경하지 않았다.

@@ -71,3 +71,11 @@
 - `pet.emfls.com` DNS CNAME은 `emfls-pet.pages.dev`로 존재하고 Pages custom domain 상태는 active가 되었지만, deployment가 없어 `https://emfls-pet.pages.dev/`와 `https://pet.emfls.com/` 모두 HTTP 522를 반환했다.
 - Wrangler Direct Upload는 `CLOUDFLARE_API_TOKEN`이 없어 실행되지 않았다. 빈 deployment metadata POST나 다른 프로젝트 우회는 하지 않았다.
 - 현재 BLOCKER는 Cloudflare Dashboard에서 GitHub App의 `emfls/emfls-pet` repository access/webhook을 확인하거나, 최소 권한의 Cloudflare API token으로 `dist` Direct Upload를 수행하는 것이다.
+
+## 2026-09-15 — GA4 connection
+
+- Measurement ID `G-DS3JXX4VR6`를 공통 `src/layouts/Layout.astro`에 공식 `gtag.js` 방식으로 연결했다.
+- `import.meta.env.PROD` 조건으로 production 빌드에서만 Google tag와 config를 출력하며, 정적 사이트의 기본 page_view 동작을 사용하고 수동 page_view 이벤트는 추가하지 않았다.
+- 기존 Analytics/GTM 구현은 없었고, 페이지당 Google tag script와 config가 각각 한 번만 생성되도록 확인했다. GTM은 추가하지 않았다.
+- Privacy에 Google Analytics 4의 사이트 이용 통계 측정 목적과 Google의 관련 데이터 처리 가능성을 반영했다. Cookie 동의 시스템이나 새로운 수집 항목은 추가하지 않았다.
+- `npm run check`와 `npm run build`를 실행해 기존 27개 페이지 구조가 유지되는지 확인한다. Production URL은 기존 Cloudflare deployment blocker 해소 후 별도 확인 대상이다.

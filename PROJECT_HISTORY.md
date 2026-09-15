@@ -79,3 +79,11 @@
 - 기존 Analytics/GTM 구현은 없었고, 페이지당 Google tag script와 config가 각각 한 번만 생성되도록 확인했다. GTM은 추가하지 않았다.
 - Privacy에 Google Analytics 4의 사이트 이용 통계 측정 목적과 Google의 관련 데이터 처리 가능성을 반영했다. Cookie 동의 시스템이나 새로운 수집 항목은 추가하지 않았다.
 - `npm run check`와 `npm run build`를 실행해 기존 27개 페이지 구조가 유지되는지 확인한다. Production URL은 기존 Cloudflare deployment blocker 해소 후 별도 확인 대상이다.
+
+## 2026-09-15 — Cloudflare production deployment resolved
+
+- 로컬 `.git` 쓰기 제한으로 일반 push가 처음 차단됐으나, 저장소 범위 권한으로 GA4 변경 commit `72cb774`를 `origin/main`에 push했다.
+- 그 push가 `github:push`로 Cloudflare Pages `emfls-pet`에 전달되어 최초 production deployment `e41483b5-9f1a-4572-90a4-c759cdc3fce0`가 생성되고 build/deploy 성공했다. 설정은 `npm run build` → `dist`, production branch `main`이다.
+- 배포 alias는 `https://emfls-pet.pages.dev`와 `https://pet.emfls.com`이며, Pages API상 custom domain `pet.emfls.com`은 active다.
+- Production에서 홈, 주요 허브·가이드·도구·정책 페이지가 표시되었고, Routine 체크/새로고침 저장과 Feeding 계산/입력 결과를 브라우저로 확인했다. `robots.txt`와 `sitemap-index.xml`은 deployment manifest와 로컬 build에서 정적 파일 생성을 확인했으며 브라우저 보호 기능 때문에 직접 텍스트 열람은 제한됐다.
+- Production HTML에는 GA4 `G-DS3JXX4VR6`가 공통 Layout을 통해 삽입되며, deployment에는 27개 HTML 페이지와 sitemap/robots가 포함됐다.

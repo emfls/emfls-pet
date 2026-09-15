@@ -96,7 +96,7 @@
 
 ## 2026-09-15 — EMFLS Network Baseline v1
 
-- 기존 Astro 정적 구조와 아이보리·코랄·청록 Rounded UI를 유지하면서 `trailingSlash: 'always'`를 명시했다. canonical, 내부 링크, sitemap은 trailing slash URL을 사용한다.
+- 기존 Astro 정적 구조와 아이보리·코랄·청록 Rounded UI를 유지하면서 콘텐츠 URL의 canonical, 내부 링크, sitemap은 trailing slash URL을 사용한다. 네이버 exact `.html` 소유확인 URL이 308 없이 200이어야 하므로 Astro의 정규화는 `trailingSlash: 'ignore'`로 두고, 사이트 페이지 경로 자체는 기존 trailing slash 링크·canonical 정책으로 유지했다.
 - 공통 Layout에 noindex·OG/Twitter override·theme-color·선택적 JSON-LD 구조를 보강하고, 홈에는 정확한 `WebSite` schema를 추가했다. 실제 대표 OG 이미지가 없어 가짜 경로는 넣지 않았다. GA4 production-only 동작은 유지했다.
 - skip link, semantic main/header/footer, focus-visible, touch target, decorative emoji 처리, reduced-motion 기본을 공통 레이아웃과 기존 UI에 반영했다.
 - 기존 15개 가이드를 전부 질문 답변성, 첫 화면 핵심 답, 확인 순서, 금지 행동, 안전 신호, 내부 링크, 의료 표현 기준으로 audit했다. `dog-not-eating`과 `cat-not-drinking`을 우선 보강해 상황 기록·단계별 확인·피해야 할 행동·상담 신호를 명확히 했고, 급여량 계산기는 처방이 아닌 참고 도구라는 경계를 유지했다.

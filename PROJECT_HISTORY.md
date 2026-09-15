@@ -103,3 +103,8 @@
 - `CONTENT_GUIDE.md`에 얇은 콘텐츠 방지, 출처 우선순위, 상황 구분, 안전 신호, 의료 표현 제한을 추가했다. Editorial Policy에 출처·AI 보조·이미지 라이선스·전문가 상담·오류 수정 원칙을 보완했다.
 - QA 기준: `npm run check`, `npm run build`, 15개 가이드 유지, sitemap host·404 제외·trailing slash 검증, canonical/내부 링크/GA4 중복 검사를 수행한다.
 - 실제 production 배포 후 주요 페이지와 도구 경로가 모두 HTTP 200을 반환하는 것을 확인했다. `https://pet.emfls.com/sitemap.xml`은 26개 URL의 XML을, `/robots.txt`는 새 sitemap 선언을 반환하며, 대표 가이드의 trailing-slash canonical·Article schema·GA4도 확인했다.
+
+## 2026-09-15 — Naver ownership verification asset
+
+- 네이버 소유확인 파일 `naver6dde13e69fe8ec25cd17e085c65c2124.html`을 저장소 루트에서 `public/`로 이동했다.
+- 파일 내용은 변경하지 않았으며, Astro static build 결과와 production 경로에서 원본 인증 문자열을 확인한다.

@@ -114,3 +114,10 @@
 ## 2026-09-15 — Naver ownership file replacement
 
 - 네이버 소유확인 파일을 `navere4a2be9a6dea6acc28cccd1fb834c95a.html`로 교체하고 `public/`에 배치했다. 기존 인증 파일은 제거했으며 새 파일 원문은 변경하지 않았다.
+
+## 2026-09-15 — Visual QA baseline pass
+
+- Production 홈을 실제 브라우저 Desktop 화면에서 확인하고, 기존 아이보리·코랄·청록 Pet 디자인과 Hero visual을 유지했다.
+- 홈의 Common Questions는 15개 전체 가이드 대신 대표 6개(강아지 3개·고양이 3개)를 우선 노출하고 전체 가이드 링크를 유지해 랜딩 페이지의 반복과 길이를 줄였다.
+- 홈 Hero 설명과 도구 카드의 불필요한 강제 개행을 제거하고, 한글 heading의 과도한 음수 자간을 완화했다.
+- `npm run check`와 `npm run build`를 통과했으며 27개 정적 페이지 구조와 기존 기능·SEO 경로를 유지했다.

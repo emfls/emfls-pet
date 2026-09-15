@@ -87,3 +87,9 @@
 - 배포 alias는 `https://emfls-pet.pages.dev`와 `https://pet.emfls.com`이며, Pages API상 custom domain `pet.emfls.com`은 active다.
 - Production에서 홈, 주요 허브·가이드·도구·정책 페이지가 표시되었고, Routine 체크/새로고침 저장과 Feeding 계산/입력 결과를 브라우저로 확인했다. `robots.txt`와 `sitemap-index.xml`은 deployment manifest와 로컬 build에서 정적 파일 생성을 확인했으며 브라우저 보호 기능 때문에 직접 텍스트 열람은 제한됐다.
 - Production HTML에는 GA4 `G-DS3JXX4VR6`가 공통 Layout을 통해 삽입되며, deployment에는 27개 HTML 페이지와 sitemap/robots가 포함됐다.
+
+## 2026-09-15 — sitemap.xml canonical URL
+
+- 기존 `@astrojs/sitemap`의 `sitemap-index.xml` 출력 대신 정적 Astro endpoint `src/pages/sitemap.xml.ts`를 추가해 단일 `/sitemap.xml`에서 전체 indexable 페이지 URL을 직접 제공하도록 변경했다.
+- sitemap URL은 `https://pet.emfls.com`을 기준으로 생성하며 15개 가이드와 주요 정적 페이지를 포함하고 404·localhost·pages.dev URL은 포함하지 않는다.
+- `public/robots.txt`와 `README.md`의 제출 URL을 `https://pet.emfls.com/sitemap.xml`로 통일했다. 기존 `sitemap-index.xml`은 과거 기록으로 남기고 최신 운영 기준만 변경했다.

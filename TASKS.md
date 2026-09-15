@@ -35,5 +35,6 @@
 - [x] `pet.emfls.com` custom domain 연결 및 DNS CNAME 생성
 - [x] `pet.emfls.com` HTTP 200 및 HTTPS production QA
 - [x] GA4(`G-DS3JXX4VR6`) production-only 연결 및 Privacy 반영
+- [x] 단일 `sitemap.xml` 생성 및 robots/Search Console URL 통일
 - [ ] 검색 결과 정렬·카테고리 탐색 UX 고도화
 - [ ] 신뢰 가능한 용품 큐레이션 모델 검토

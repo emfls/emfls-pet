@@ -5,7 +5,7 @@
 ## Production
 
 - 공식 도메인: https://pet.emfls.com
-- Sitemap: https://pet.emfls.com/sitemap-index.xml
+- Sitemap: https://pet.emfls.com/sitemap.xml
 - Robots: https://pet.emfls.com/robots.txt
 
 Search Console에 사이트를 등록할 때 위 sitemap URL을 제출합니다. 소유권 확인 값은 실제 Search Console에서 발급받은 뒤 별도 작업으로 추가합니다.

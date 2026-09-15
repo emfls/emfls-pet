@@ -121,3 +121,9 @@
 - 홈의 Common Questions는 15개 전체 가이드 대신 대표 6개(강아지 3개·고양이 3개)를 우선 노출하고 전체 가이드 링크를 유지해 랜딩 페이지의 반복과 길이를 줄였다.
 - 홈 Hero 설명과 도구 카드의 불필요한 강제 개행을 제거하고, 한글 heading의 과도한 음수 자간을 완화했다.
 - `npm run check`와 `npm run build`를 통과했으며 27개 정적 페이지 구조와 기존 기능·SEO 경로를 유지했다.
+
+## 2026-09-15 — Mobile visual QA preparation
+
+- 작은 화면 대응 CSS를 실제 기존 구조 범위에서 보강했다. 640px 이하에서 header 좌우 여백과 navigation 간격을 줄이고, footer 링크가 줄바꿈되도록 해 가로 overflow 가능성을 낮췄다.
+- 홈 Hero 설명은 자연스러운 wrapping을 유지하고, 대표 가이드 큐레이션과 기존 Pet 디자인을 보존했다.
+- `npm run check`와 `npm run build`는 통과했다. 현재 브라우저 제어 환경에서는 320/360/375/390px viewport를 직접 지정하는 기능이 없어 해당 네 가지의 최종 시각 확인은 미완료 상태다.

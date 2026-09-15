@@ -102,3 +102,4 @@
 - 기존 15개 가이드를 전부 질문 답변성, 첫 화면 핵심 답, 확인 순서, 금지 행동, 안전 신호, 내부 링크, 의료 표현 기준으로 audit했다. `dog-not-eating`과 `cat-not-drinking`을 우선 보강해 상황 기록·단계별 확인·피해야 할 행동·상담 신호를 명확히 했고, 급여량 계산기는 처방이 아닌 참고 도구라는 경계를 유지했다.
 - `CONTENT_GUIDE.md`에 얇은 콘텐츠 방지, 출처 우선순위, 상황 구분, 안전 신호, 의료 표현 제한을 추가했다. Editorial Policy에 출처·AI 보조·이미지 라이선스·전문가 상담·오류 수정 원칙을 보완했다.
 - QA 기준: `npm run check`, `npm run build`, 15개 가이드 유지, sitemap host·404 제외·trailing slash 검증, canonical/내부 링크/GA4 중복 검사를 수행한다.
+- 실제 production 배포 후 주요 페이지와 도구 경로가 모두 HTTP 200을 반환하는 것을 확인했다. `https://pet.emfls.com/sitemap.xml`은 26개 URL의 XML을, `/robots.txt`는 새 sitemap 선언을 반환하며, 대표 가이드의 trailing-slash canonical·Article schema·GA4도 확인했다.

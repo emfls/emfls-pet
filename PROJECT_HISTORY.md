@@ -128,3 +128,10 @@
 - 홈 Hero 설명은 자연스러운 wrapping을 유지하고, 대표 가이드 큐레이션과 기존 Pet 디자인을 보존했다.
 - `npm run check`와 `npm run build`는 통과했다. 현재 브라우저 제어 환경에서는 320/360/375/390px viewport를 직접 지정하는 기능이 없어 해당 네 가지의 최종 시각 확인은 미완료 상태다.
 - Headless Chrome으로 production 홈을 320px·360px에서 실제 캡처해 확인한 결과 header navigation과 Hero 설명의 clipping을 발견했다. 모바일 nav를 2행 균등 배치하고 Hero 설명 폭을 제한했으며, 후속 `npm run check`·`npm run build`도 통과했다. 375px·390px 및 나머지 지정 페이지의 캡처 확인은 아직 남아 있다.
+
+## 2026-09-15 — Mobile Visual QA complete
+
+- 프로젝트 외부 Chrome headless screenshot으로 production을 320px, 360px, 375px, 390px 기준으로 확인했다.
+- Home, Dog/Cat hub, Guides archive, 대표 guide 상세, Tools/Routine/Feeding, About, Editorial Policy, Privacy, Contact, 404 페이지 유형을 모바일 렌더링 기준으로 점검했다.
+- 320px·360px에서 발견한 navigation과 Hero clipping을 수정했고, 375px·390px에서는 동일 문제가 재발하지 않는 것을 확인했다. 카드·폼·footer·본문 여백과 줄바꿈에도 clipping/overflow 문제가 없었다.
+- 최종 `npm run check`와 `npm run build`는 통과했고 Cloudflare Pages production 배포(`6477d0c`)도 성공했다. Mobile Visual QA를 완료 처리한다.

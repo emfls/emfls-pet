@@ -46,4 +46,4 @@
 ## Visual QA
 - [x] Production 홈 Desktop 시각 점검 및 홈 대표 가이드 6개 큐레이션
 - [x] Hero/도구 설명 강제 개행 및 heading 자간 완화
-- [ ] 320~390px 실제 브라우저 viewport 최종 점검 — viewport 직접 지정 가능한 브라우저 QA 필요
+- [x] 320~390px 실제 브라우저 viewport 최종 점검 및 Mobile Visual QA 완료

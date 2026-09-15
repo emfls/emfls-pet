@@ -127,3 +127,4 @@
 - 작은 화면 대응 CSS를 실제 기존 구조 범위에서 보강했다. 640px 이하에서 header 좌우 여백과 navigation 간격을 줄이고, footer 링크가 줄바꿈되도록 해 가로 overflow 가능성을 낮췄다.
 - 홈 Hero 설명은 자연스러운 wrapping을 유지하고, 대표 가이드 큐레이션과 기존 Pet 디자인을 보존했다.
 - `npm run check`와 `npm run build`는 통과했다. 현재 브라우저 제어 환경에서는 320/360/375/390px viewport를 직접 지정하는 기능이 없어 해당 네 가지의 최종 시각 확인은 미완료 상태다.
+- Headless Chrome으로 production 홈을 320px·360px에서 실제 캡처해 확인한 결과 header navigation과 Hero 설명의 clipping을 발견했다. 모바일 nav를 2행 균등 배치하고 Hero 설명 폭을 제한했으며, 후속 `npm run check`·`npm run build`도 통과했다. 375px·390px 및 나머지 지정 페이지의 캡처 확인은 아직 남아 있다.

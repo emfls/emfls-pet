@@ -93,3 +93,12 @@
 - 기존 `@astrojs/sitemap`의 `sitemap-index.xml` 출력 대신 정적 Astro endpoint `src/pages/sitemap.xml.ts`를 추가해 단일 `/sitemap.xml`에서 전체 indexable 페이지 URL을 직접 제공하도록 변경했다.
 - sitemap URL은 `https://pet.emfls.com`을 기준으로 생성하며 15개 가이드와 주요 정적 페이지를 포함하고 404·localhost·pages.dev URL은 포함하지 않는다.
 - `public/robots.txt`와 `README.md`의 제출 URL을 `https://pet.emfls.com/sitemap.xml`로 통일했다. 기존 `sitemap-index.xml`은 과거 기록으로 남기고 최신 운영 기준만 변경했다.
+
+## 2026-09-15 — EMFLS Network Baseline v1
+
+- 기존 Astro 정적 구조와 아이보리·코랄·청록 Rounded UI를 유지하면서 `trailingSlash: 'always'`를 명시했다. canonical, 내부 링크, sitemap은 trailing slash URL을 사용한다.
+- 공통 Layout에 noindex·OG/Twitter override·theme-color·선택적 JSON-LD 구조를 보강하고, 홈에는 정확한 `WebSite` schema를 추가했다. 실제 대표 OG 이미지가 없어 가짜 경로는 넣지 않았다. GA4 production-only 동작은 유지했다.
+- skip link, semantic main/header/footer, focus-visible, touch target, decorative emoji 처리, reduced-motion 기본을 공통 레이아웃과 기존 UI에 반영했다.
+- 기존 15개 가이드를 전부 질문 답변성, 첫 화면 핵심 답, 확인 순서, 금지 행동, 안전 신호, 내부 링크, 의료 표현 기준으로 audit했다. `dog-not-eating`과 `cat-not-drinking`을 우선 보강해 상황 기록·단계별 확인·피해야 할 행동·상담 신호를 명확히 했고, 급여량 계산기는 처방이 아닌 참고 도구라는 경계를 유지했다.
+- `CONTENT_GUIDE.md`에 얇은 콘텐츠 방지, 출처 우선순위, 상황 구분, 안전 신호, 의료 표현 제한을 추가했다. Editorial Policy에 출처·AI 보조·이미지 라이선스·전문가 상담·오류 수정 원칙을 보완했다.
+- QA 기준: `npm run check`, `npm run build`, 15개 가이드 유지, sitemap host·404 제외·trailing slash 검증, canonical/내부 링크/GA4 중복 검사를 수행한다.

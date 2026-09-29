@@ -135,3 +135,10 @@
 - Home, Dog/Cat hub, Guides archive, 대표 guide 상세, Tools/Routine/Feeding, About, Editorial Policy, Privacy, Contact, 404 페이지 유형을 모바일 렌더링 기준으로 점검했다.
 - 320px·360px에서 발견한 navigation과 Hero clipping을 수정했고, 375px·390px에서는 동일 문제가 재발하지 않는 것을 확인했다. 카드·폼·footer·본문 여백과 줄바꿈에도 clipping/overflow 문제가 없었다.
 - 최종 `npm run check`와 `npm run build`는 통과했고 Cloudflare Pages production 배포(`6477d0c`)도 성공했다. Mobile Visual QA를 완료 처리한다.
+
+## 2026-09-29 — Foundation/Search Launch: Naver verifier and IndexNow key
+
+- 확인된 GitHub `main` SHA `b75bdf6`에서 `codex/site5-foundation-search` 브랜치를 분리하고 `navere4a2be9a6dea6acc28cccd1fb834c95a.html`만 처리하는 Cloudflare Pages Function을 추가했다. GET은 기존 네이버 인증 문자열을 `text/html`과 HTTP 200으로 반환하고, HEAD는 본문 없이 응답하며, 그 밖의 method는 405로 거절한다.
+- `public/_routes.json`은 정확한 네이버 인증 URL 하나만 `include`해 나머지 요청은 정적 응답으로 유지한다. 256-bit hexadecimal IndexNow 키를 만들고 이름과 내용이 일치하는 `.txt` 파일로 공개했다.
+- 구현 전 회귀 검사는 누락된 세 항목에서 실패했고, 구현 후 4/4 통과했다. GET/HEAD/다른 method 동작, 정확한 Function 호출 allowlist, IndexNow key 일치를 확인했다. `npm run build`는 27개 페이지를 생성해 통과했다. 기존 guide ID 7개의 중복 경고는 빌드 출력에 남았다. Wrangler Pages 로컬 실행은 네이버 URL과 IndexNow 키 파일에 각각 HTTP 200 및 기대 본문을 반환했다. 로컬 브라우저 캡처로 기존 홈페이지와 탐색 UI를 확인했으며 UI 코드는 바꾸지 않았다.
+- Production은 아직 SHA `b75bdf6`의 배포 `bf0f09e8`이며, 새 코드를 검토·배포하기 전까지 정확한 네이버 인증 URL은 308 차단 상태다. Cloudflare Pages branch Preview 설정은 `none`이며 Preview 설정과 Production은 바꾸지 않았다. Google Search Console 사이트 속성과 sitemap 성공 제출은 계정에서 확인했다. Naver Search Advisor는 로그인 화면에서 멈췄고 자격 증명이나 인증 수단은 입력하지 않았다. Production 도메인에서 키가 제공될 때까지 IndexNow 제출은 대기하며, Daum 상태는 아직 미확인이다.
